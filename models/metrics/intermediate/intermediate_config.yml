@@ -1,0 +1,32 @@
+version: 2
+
+models:
+
+  - name: questionnaire_answer_key
+
+    description: |
+      Creates a table that lists all valid answer options for all choice-type questions in all 
+      questionnaires. This table is used to validate the answers in the questionnaire_response table.
+
+    columns:
+
+      - name: questionnaireId
+        description: identifies the questionnaire
+
+      - name: title
+        description: Name of the questionnaire
+
+      - name: linkId
+        description: Identifies the question within the questionnaire
+
+      - name: text
+        description: Question text
+
+      - name: system
+        description: Coding system for the answer
+
+      - name: code
+        description: Code for the answer
+
+      - name: display
+        description: Display text for the answer
