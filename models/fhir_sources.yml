@@ -20,54 +20,6 @@ sources:
     database: "{{ var('database') }}"
     schema: "{{ var('schema') }}"
     tables:
-      - name: AllergyIntolerance
-      - name: Binary
-      - name: CarePlan
-      - name: CareTeam
-      - name: Claim
-      - name: Composition
-      - name: Condition
-      - name: Device
-      - name: DiagnosticReport
-      - name: DocumentReference
-      - name: Encounter
-      - name: ExplanationOfBenefit
-      - name: ImagingStudy
-      - name: Immunization
-      - name: Location
-      - name: Medication
-      - name: MedicationDispense
-      - name: MedicationAdministration
-      - name: MedicationRequest
-      - name: Observation
-      - name: Organization
       - name: Patient
-      - name: Practitioner
-      - name: PractitionerRole
-      - name: Procedure
-
-      # Public Synthea data are stored in snake_case tables.
-      - name: allergy_intolerance
-      - name: binary
-      - name: care_plan
-      - name: care_team
-      - name: claim
-      - name: composition
-      - name: condition
-      - name: device
-      - name: diagnostic_report
-      - name: document_reference
-      - name: encounter
-      - name: imaging_study
-      - name: immunization
-      - name: location
-      - name: medication
-      - name: medication_administration
-      - name: medication_dispense
-      - name: medication_request
-      - name: observation
-      - name: organization
-      - name: patient
-      - name: practitioner
-      - name: practitioner_role
-      - name: procedure
+      - name: Questionnaire
+      - name: QuestionnaireResponse
