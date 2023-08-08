@@ -847,6 +847,29 @@ SELECT
     "" AS dimension_c_description
 UNION ALL
 SELECT
+    "metrics/data_quality/questionnaireresponse_invalid_choice.sql" AS metric_path,
+    "questionnaireresponse_invalid_choice" AS metric_name,
+    "QuestionnaireResponse records with invalid answer choices" AS description,
+    "QuestionnaireResponse invalid choice" AS short_description,
+    "QuestionnaireResponse" AS primary_resource,
+    
+    [ 'id' ]
+     AS primary_fields,
+    
+    [ 'Questionnaire' ]
+     AS secondary_resources,
+    "" AS category,
+    "" AS calculation,
+    "" AS metric_date_field,
+    "" AS metric_date_description,
+    "" AS dimension_a,
+    "" AS dimension_a_description,
+    "" AS dimension_b,
+    "" AS dimension_b_description,
+    "" AS dimension_c,
+    "" AS dimension_c_description
+UNION ALL
+SELECT
     "metrics/data_quality/diagnosticreport_reference_servicerequest_undefined.sql" AS metric_path,
     "diagnosticreport_reference_servicerequest_undefined" AS metric_name,
     "Proportion of DiagnosticReport resources that do not have a service request reference recorded" AS description,
@@ -2383,29 +2406,6 @@ SELECT
     "" AS dimension_c_description
 UNION ALL
 SELECT
-    "metrics/data_quality/questionnaireresponse_linkid_unresolved.sql" AS metric_path,
-    "questionnaireresponse_linkid_unresolved" AS metric_name,
-    "Proportion of ServiceRequest resources that reference a non-existent encounter" AS description,
-    "SerReq ref. Enc - non-exist" AS short_description,
-    "ServiceRequest" AS primary_resource,
-    
-    [ 'encounter.encounterId' ]
-     AS primary_fields,
-    
-    [ 'Encounter' ]
-     AS secondary_resources,
-    "Referential integrity" AS category,
-    "PROPORTION" AS calculation,
-    "ServiceRequest.authoredOn" AS metric_date_field,
-    "Service request signed date" AS metric_date_description,
-    "status" AS dimension_a,
-    "The status of the service request (draft | active | on-hold | revoked | completed | entered-in-error | unknown)" AS dimension_a_description,
-    "category" AS dimension_b,
-    "The category of the service request" AS dimension_b_description,
-    "" AS dimension_c,
-    "" AS dimension_c_description
-UNION ALL
-SELECT
     "metrics/data_quality/diagnosticreport_reference_encounter_unresolved.sql" AS metric_path,
     "diagnosticreport_reference_encounter_unresolved" AS metric_name,
     "Proportion of DiagnosticReport resources that reference a non-existent encounter" AS description,
@@ -3461,5 +3461,47 @@ SELECT
     "The document reference status  (current | superseded | entered-in-error)" AS dimension_a_description,
     "mime_type" AS dimension_b,
     "The media type of the document (binary | image/png | NULL)" AS dimension_b_description,
+    "" AS dimension_c,
+    "" AS dimension_c_description
+UNION ALL
+SELECT
+    "metrics/intermediate/questionnaire_answer_key.sql" AS metric_path,
+    "questionnaire_answer_key" AS metric_name,
+    "Allowed answer options for choice-type questions in all questionnaires" AS description,
+    "Questionnaire answer key" AS short_description,
+    "Questionnaire" AS primary_resource,
+    
+    ARRAY<INT64>[]
+     AS primary_fields,
+    NULL AS secondary_resources,
+    "" AS category,
+    "" AS calculation,
+    "" AS metric_date_field,
+    "" AS metric_date_description,
+    "" AS dimension_a,
+    "" AS dimension_a_description,
+    "" AS dimension_b,
+    "" AS dimension_b_description,
+    "" AS dimension_c,
+    "" AS dimension_c_description
+UNION ALL
+SELECT
+    "metrics/intermediate/questionnaireresponse_answer_index.sql" AS metric_path,
+    "questionnaireresponse_answer_index" AS metric_name,
+    "Coded answer values in all questionnaire responses" AS description,
+    "QuestionnaireResponse answer index" AS short_description,
+    "QuestionnaireResponse" AS primary_resource,
+    
+    ARRAY<INT64>[]
+     AS primary_fields,
+    NULL AS secondary_resources,
+    "" AS category,
+    "" AS calculation,
+    "" AS metric_date_field,
+    "" AS metric_date_description,
+    "" AS dimension_a,
+    "" AS dimension_a_description,
+    "" AS dimension_b,
+    "" AS dimension_b_description,
     "" AS dimension_c,
     "" AS dimension_c_description
