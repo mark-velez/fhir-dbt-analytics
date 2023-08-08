@@ -503,3 +503,17 @@ selectors:
               value: spark_todo
           - method: path
             value: models/metadata/
+
+  - name: resource_ppi
+    description: "Metrics for which the primary resource evaluated is one of Patient, Questionnaire or QuestionnaireResponse"
+    definition:
+      union:
+        - method: config.meta.fhir_resource
+          value: Questionnaire
+          parents: true
+        - method: config.meta.fhir_resource
+          value: Patient
+          parents: true
+        - method: config.meta.fhir_resource
+          value: QuestionnaireResponse
+          parents: true
